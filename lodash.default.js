@@ -45,7 +45,7 @@ import toInteger from './toInteger.js';
 import lodash from './wrapperLodash.js';
 
 /** Used as the semantic version number. */
-var VERSION = '4.16.4';
+var VERSION = '4.16.5';
 
 /** Used to compose bitmasks for function metadata. */
 var BIND_KEY_FLAG = 2;
@@ -65,7 +65,7 @@ var arrayProto = Array.prototype,
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /** Built-in value references. */
-var iteratorSymbol = Symbol ? Symbol.iterator : undefined;
+var symIterator = Symbol ? Symbol.iterator : undefined;
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeMax = Math.max,
@@ -636,8 +636,8 @@ lodash.prototype.toJSON = lodash.prototype.valueOf = lodash.prototype.value = se
 // Add lazy aliases.
 lodash.prototype.first = lodash.prototype.head;
 
-if (iteratorSymbol) {
-  lodash.prototype[iteratorSymbol] = seq.toIterator;
+if (symIterator) {
+  lodash.prototype[symIterator] = seq.toIterator;
 }
 
 export default lodash;
